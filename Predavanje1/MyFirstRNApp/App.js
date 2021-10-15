@@ -1,48 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 
 export default function App() {
   return (
+    // View, text Component
     <View style={styles.container}>
-<<<<<<< Updated upstream
-      <Text>Dobro jutro radni narode</Text>
-=======
-      {/* view, text element */}
-
-      <View style={styles.headerWrapper}>
-        <Text style={styles.headerTitle}>Test Appheader</Text>
-
+      <View style={styles.header}>
+        <Text style={styles.title}>Probna aplikacija</Text>
       </View>
 
+      {/* Flexbox layout */}
       <View style={styles.jumbotron}>
-        <View styles={StyleSheet.left}></View>
-        <Text styles={styles.leftText}>LEFT</Text>
-        <View style={StyleSheet.right}></View>
-        <Text>RIGHT</Text>
+        <View style={styles.container}>
+          <Text style={styles.subtitle}>Lijevo</Text>
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.subtitle}>Desno</Text>
+        </View>
       </View>
-      
->>>>>>> Stashed changes
-      <StatusBar style="auto" />
+
+      {/* Image component */}
       <Image
         style={styles.tinyLogo}
         source={{
-          uri: "https://thumbs.dreamstime.com/b/cartoon-cute-cat-sleeping-white-background-icon-logo-vector-kitten-sleep-illustrator-110972697.jpg",
+          uri: "https://cdn0.iconfinder.com/data/icons/tiny-icons-1/100/tiny-41-512.png",
         }}
       />
-      <Image style={styles.tinyLogo}
-        source={require("./assets/mica.jpg")}
-      />
+      <Image style={styles.tinyLogo} source={require("./assets/favicon.png")} />
 
-        <Button 
-        title="Naslov buttona"
-        onPress={() => Alert.alert("Button pressed")}
-        />
-      
+      {/* button component */}
+      <Button title="Button" onPress={() => Alert.alert("Stisnuli ste button")} />
+
+      {/* touchable opacity component */}
       <TouchableOpacity
-      style={styles.touchableContainer}
-      onPress={() => Alert.alert("Touchable opacity pressed")}>
-          <Text style={styles.textStyle}>Touchable Opacity</Text>
+        style={styles.resolvedContainerStyle}
+        onPress={() => Alert.alert("TouchableOpacity dodirnut")}
+      >
+        <Text style={styles.textStyle}>Touchable opacity</Text>
       </TouchableOpacity>
     </View>
   );
@@ -51,41 +54,34 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DADADA',
-
+    paddingTop: 50,
+    backgroundColor: "#efefef",
   },
-
-  headerWrapper: {
+  header: {
+    borderBottomWidth: 2,
     padding: 10,
-    borderBottomWidth: 2
-
   },
-
-  headerTitle: {
+  title: {
     textAlign: "center",
-    fontSize: 30
+    fontSize: 30,
   },
   jumbotron: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#b0a8c5"
-  },
-  leftText: {
-    color: "white",
-    fontSize: 40
-  },
-
-  tinyLogo: {
-    width: 100,
-    height: 100
-  },
-  touchableContainer: {
     margin: 20,
-    backgroundColor: white,
-    padding: 20
+    backgroundColor: "white"
+  },
+  tinyLogo: {
+    margin: 10,
+    width: 100,
+    height: 100,
+  },
+  resolvedContainerStyle: {
+    margin: 20,
+    backgroundColor: "#b0a8c5",
+    padding: 20,
   },
   textStyle: {
-    fontSize: 20
-  }
-
+    fontSize: 20,
+    color: "black",
+  },
 });
